@@ -1,0 +1,9 @@
+print("   Smart Shop  ")
+bill=int(input("Apnar mot bill koto taka?"))
+
+if bill > 2500 :
+     print(" Apni discount peyechhen")
+     print("Wow!", "Apnake dite hobe:", bill - 120)
+else :        
+     print("Apni discount paben na")
+     print("Apnake dite hobe;", bill, "taka")
