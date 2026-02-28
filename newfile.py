@@ -1,6 +1,5 @@
-# Eta ekta choto robot programme 
-print (" ....  Robot Conversation  .... ")
-name = input(" Apnar name ki ? ")
-age=input(" Apnar boyosh koto ? ")
-print (" Hello " + name + " ! " )
-print ("Wow, " + age + " bochor boyoshe programming shikhcho! Shera hobe")
+num1= input("Enter the first number")
+num2=input("Enter the second number")
+num3=input("Enter the third number")
+sum= int(num1)+int(num2)+int(num3)
+print("What is your answers?", sum)
