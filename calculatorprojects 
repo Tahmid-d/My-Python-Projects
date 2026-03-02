@@ -1,0 +1,24 @@
+print ( "simple calculator game")
+print ( "let is start............") 
+
+num1 = float (input( "enter the first number"))
+num2 = float (input("enter the second number"))
+
+print ( "1. Addition")
+print ( " 2. Substraction")
+print( "3. Multiple")
+print( "4. Divide") 
+
+choice = input ( " choose 1/2/3/4 ") 
+
+if choice == "1" : 
+    print ( " Answer : ", num1+num2)
+elif choice == "2" : 
+    print ( " Answer : ", num1-num2) 
+elif choice == "3" : 
+    print ( " Answer : ", num1*num2)
+elif choice == "4" : 
+    if num2 != 0 : 
+        print ( " Answer : ", num1/num2)
+    else : 
+        print (" zero dia vaj kora ji na ") 
