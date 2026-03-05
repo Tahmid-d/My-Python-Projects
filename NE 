@@ -1,0 +1,30 @@
+import random 
+print ( f" ....New game is start....." ) 
+words_dic = { "python" : "A popular programming  language named after a snake" , "algorithm" : "A step by step procedure for solving a lot of problems" , "dictionary" : "A data structure that key-value pairs" , "variable" : "A container for storing data values" } 
+
+def start_game ( ) : 
+    print ( f" …Welcome everyone …" ) 
+    score = 0 
+    word_list = list ( words_dic .keys ( ) ) 
+    random .shuffle ( word_list ) 
+    
+    for word in word_list  : 
+        print ( f" Hint : {  words_dic [ word ] } " ) 
+        guess_word = input ( " What is your word ? " ) .lower ( ) .strip ( ) 
+        if guess_word == word : 
+            print (f" Correct ! " , " You have achieved 10 points " ) 
+            score = score + 10 
+        else : 
+            print ( f" Wrong ! " , " You do not achieve 10 points " ) 
+            print ( f" The little hint is :  , ' { word [:2] } ' " )   
+            retry_word = input ( " Try again ") .lower ( ) .strip ( ) 
+                
+            if retry_word == word : 
+                  print ( f" This time you will not gain powerful points : " , " Sorry " ) 
+                  score = score + 5  
+            else  : 
+                  print ( f" Still wrong : " , " The correct word was  : { word } " )  
+                  score = 0 
+start_game ( ) 
+                 
+                
