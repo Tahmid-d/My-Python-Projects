@@ -1,0 +1,14 @@
+secret_number = 20 
+assumed_number = 2 
+
+while assumed_number != secret_number :  
+    assumed_number = int ( input ( " assume the number ( 1 - 28 ) : " ) ) 
+  
+     
+    if assumed_number == secret_number  : 
+    
+          print ( " Tomar number right : " , " Tumi win " ) 
+        
+    else : 
+   
+          print ( " Tumi paroni , abr try koro " ) 
