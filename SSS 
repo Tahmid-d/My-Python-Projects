@@ -1,0 +1,7 @@
+study_plan = { " Physics " : { " Time " : " 2 hours " , " Progress " : " 70% " } , " Mathematics " : { " Time " : " 3 hours " , " Progress " : " 92% " } , " Biology " : { " Time " : " 1 hour " , " Progress " : " 85% " } } 
+print ( f" My Maths Progress are : " + study_plan[ " Mathematics "]  [ " Progress " ] ) 
+study_plan [ " Mathematics " ] [ " Progress " ] = " 100% " 
+study_plan .pop( " Biology " ) 
+print ( f" My new study schedule " ) 
+for subject , info in study_plan .items ( ) : 
+    print ( f" Subject : " + subject + " | Time : " +  info [ " Time " ]  + " | Progress : " + info [ " Progress " ]  )  
