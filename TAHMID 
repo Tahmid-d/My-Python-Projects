@@ -1,0 +1,21 @@
+students_info = { " Alif " : { " Roll " : 8 , " Physics " : 88 , " Maths " : 77 } , " Shafi " : { " Roll " : 19 , " Physics " : 78 , " Maths " : 91 } , " Adil " : { " Roll " : 28 , " Physics " : 76 , " Maths " : 86 } } 
+print ( f" Shafi got few marks in Mathematics " ) 
+students_info [ " Shafi " ] .update ( { " Maths " : 89 } ) 
+print ( f" Alif got out from the school " ) 
+students_info .pop ( " Alif " ) 
+new_students = { " Zobber " : { " Roll " : 22 , " Maths " : 98 , " Physics " : 96 } } 
+students_info .update( new_students ) 
+checking_student = students_info .get ( " Alif " , " Student not found " ) 
+print ( checking_student ) 
+
+for result , detail in students_info .items( ) : 
+        print ( " Result : " + result + " | Roll : " + str( detail .get ( ' Roll ' , 0 ) ) + " | Maths : " + str( detail .get ( ' Maths ' , 0 ) ) + " | Physics : " + str( detail .get ( ' Physics ' , 0 ) ) ) 
+        
+        if detail .get ( ' Maths ' , 0 ) >= 90 : 
+            print ( f" Congratulations ! " , " You have gained star point " ) 
+        else : 
+            print ( f" Sorry ! " , " You do not gain star point because your mathematics marks are weak " )  
+            
+            total_marks = detail .get ( ' Maths ' , 0 ) + detail .get ( ' Physics ' , 0 ) 
+            average_marks = total_marks / 2 
+            print ( " Average : " + str( average_marks ) ) 
