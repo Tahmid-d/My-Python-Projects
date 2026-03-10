@@ -1,0 +1,25 @@
+student_info = { } 
+
+for i in range ( 5 ) : 
+    print ( f"…Entering student information { i + 1 }…" ) 
+    name = input ( f" Enter the student name : " ) 
+    mcq = int ( input ( f" Enter { name }'s mcq marks are 30 out of : " ) ) 
+    sq = int ( input ( f" Enter { name }'s sq marks are 20 out of : " ) ) 
+    cq = int ( input ( f" Enter { name }'s cq marks are 50 out of : " ) ) 
+    student_info [ name ] = { " MCQ " : mcq , " SQ " : sq , " CQ " : cq } 
+    print ( f" Student informartion about mcq ,cq , sq are already saved " )             
+
+    print ( f" Students mark shit is here :  " )              
+for student , detail in student_info .items( ) : 
+        numbers = detail .get ( ' MCQ ' , 0 )  + detail .get ( ' SQ ' , 0 )  + detail .get ( ' CQ ' , 0 )  
+        total_marks = str ( numbers )
+        if int ( total_marks )   >=  80 : 
+          grade = " A+ "
+        elif int ( total_marks )  >=  70 : 
+          grade = " A "
+        elif int ( total_marks )   >=  60 : 
+           grade = " A- "  
+        else : 
+           grade = " B / F "                            
+        print ( " Name : " + student + " | Total marks : " + total_marks + " | Students grade : " + grade )    
+     
