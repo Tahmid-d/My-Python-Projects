@@ -1,0 +1,14 @@
+student_info = { } 
+
+name = input ( f" Enter the student name : " ) 
+mcq = int ( input ( f" Enter { name }'s mcq marks are : " ) ) 
+sq = int ( input ( f" Enter { name }'s sq marks are : " ) ) 
+cq = int ( input ( f" Enter { name }'s cq marks are : " ) ) 
+student_info [ name ] = { " MCQ " : mcq , " SQ " : sq , " CQ " : cq } 
+print ( f" Student informartion about mcq ,cq , sq are already saved " )  
+        
+for student , detail in student_info .items( ) : 
+      numbers = detail .get ( ' MCQ ' , 0 )  + detail .get ( ' SQ ' , 0 )  + detail .get ( ' CQ ' , 0 )  
+      total_marks = str ( numbers )
+      print ( " Name : " + student + " | Total marks : " + total_marks )   
+     
