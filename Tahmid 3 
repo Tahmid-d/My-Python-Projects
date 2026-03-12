@@ -1,0 +1,28 @@
+student_info = { }
+# shobar upore function : 
+def calculate_total_marks ( mcq , sq ,cq ) : 
+        result = mcq + sq + cq 
+        return result 
+def students_grade ( total ) : 
+        if total >= 80 :  
+            return " A+ "
+        elif total >= 70 : 
+            return " A " 
+        else : 
+            return " B/F " 
+# loop shuru : 
+for i in range ( 1 ) : 
+    print ( f"…Entering student information { i + 1 }…" ) 
+    name = input ( f" Enter the student name : " ) 
+    mcq = int ( input ( f" Enter { name }'s mcq marks are 30 out of : " ) ) 
+    sq = int ( input ( f" Enter { name }'s sq marks are 20 out of : " ) ) 
+    cq = int ( input ( f" Enter { name }'s cq marks are 50 out of : " ) ) 
+    student_info [ name ] = { " MCQ " : mcq , " SQ " : sq , " CQ " : cq } 
+    print ( f" Student informartion about mcq ,cq , sq are already saved " )             
+    print ( f" Students mark shit is here :  " )              
+# output loop : 
+for student , detail in student_info .items( ) : 
+        # dictionary theke marks gulo function a pathachhi : 
+        total = calculate_total_marks  ( ( detail [ ' MCQ ' ] ) , ( detail [ ' SQ ' ] ) , ( detail [ ' CQ ' ] ) ) 
+        grade = students_grade ( total ) # grade function call kora :                           
+        print ( " Name : " + student + " | Total marks : " + str ( total )  + " | Students grade : " + grade  )   
