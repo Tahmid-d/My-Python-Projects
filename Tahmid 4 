@@ -1,0 +1,41 @@
+import random # superhero call 
+# high score porar function 
+def get_high_score ( ) : 
+        try : 
+            with open ( " highscore .txt " , "r" ) as file : 
+                return int ( file .read ( ) ) 
+        except : 
+                return 100 # prothomber game khelle 100 dhore nibo 
+secret_number = random .randint ( 1, 50 ) 
+# computer mone mone 1 theke 1000 er moddha ekta number dhore nilo 
+print ( f" …Game start…" )  
+print ( f" I have assumed a number from 1 to 50 " ) 
+# game logic ( while loop ) 
+running = True # game start korlam ( switch on ) 
+attempts = 0 # koiber try korse ta count korte start korlam 
+high_score = get_high_score ( ) 
+print ( f" Now high score is : { high_score } " ) 
+while running : 
+        guess_number = int ( input ( " What is your guessing number ? : " ) ) 
+        attempts += 1 # user input dile ta 1 kore barbe  
+        if guess_number == secret_number : 
+            print ( f" Congtatulations ! . You captured it only { attempts } attempts " ) 
+            if attempts < high_score : # ei jaigai shai high score save kora hochhe 
+                print ( f" New record . High score saved " ) 
+                with open ( " highscore .txt " , "w" ) as file : 
+                    file .write ( str ( attempts ) )                                             
+            if attempts <= 3 : 
+                print ( f" Your Rating is : ☆☆☆ ( proffessional hacker ! ) " ) 
+            elif attempts <= 5 : 
+                print ( f" Your Rating is : ☆☆ ( Exellent ) " ) 
+            elif attempts <= 7 : 
+                print ( f" Your rating is : ☆ ( Good ) " ) 
+            running = False # game off korlam 
+        elif attempts >= 10 : 
+            print ( f" Game over . The correct word was : { secret_number } " ) 
+            running = False # game off 
+        elif guess_number > secret_number : 
+            print ( f" Almost . Guess number will small " ) 
+        else : 
+            print ( f" Sorry ! wrong answer . Guess number will big " ) 
+            
