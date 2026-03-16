@@ -1,0 +1,19 @@
+def daily_amount ( ) : 
+        try : 
+            with open ( " expense .txt " , "r" ) as file : 
+                return int ( file .read ( ) ) 
+        except : 
+                return 0                                        
+running = True 
+today_expense = daily_amount ( ) 
+while running : 
+        daily_exp = int ( input ( " How much money did you expense today ? " ) ) 
+        if daily_exp > 1000  : 
+            print ( f" Your rating is : ☆.  Oh , no ! You have to be accounted holder " ) 
+        elif daily_exp > 650 : 
+            print ( f" Your rating is : ☆☆ . Good ! you have to be accounted holder by and large " ) 
+        else : 
+            print ( f" Your rating is : ☆☆☆ . Amazing ! You are a economical " ) 
+        running = False 
+with open ( " expense .txt " , "a" ) as file : 
+        file .write ( str ( daily_exp )  + " \n " ) 
