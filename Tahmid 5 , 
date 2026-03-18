@@ -1,0 +1,41 @@
+import datetime # shomoi nia kaj korar jonno ( datetime ) library use korte hoi 
+def daily_amount ( ) : 
+        try : 
+            with open ( " expense .txt " , "r" ) as file : 
+                return int ( file .read ( ) ) 
+        except : 
+                return 0                                        
+def total_get_expense ( ) : 
+        total = 0 
+        try : 
+            with open ( " expense .txt " , "r" ) as file : 
+                for line in file : # file er every line pora
+                    if  " | " in line : # jodi line a tarikh thake 
+                        parts = line .split ( " | ") # pipe sign dia tarikh take alada kora 
+                        amount = int ( parts [ 1 ] .strip ( ) ) # only number ta naoa 
+                        total += amount 
+                    elif line .strip ( ) : # jodi old shudhu number er line thake or khali line skip kora 
+                        total += int ( line .strip ( ) ) # only number gula er summation kora  
+            return total 
+        except : 
+            return 0 
+running = True 
+today_expense = daily_amount ( ) 
+while running : 
+        try : 
+            daily_exp = int ( input ( " How much money did you expense today ? " ) ) 
+            if daily_exp > 800  : 
+                print ( f" Your rating is : ☆.  Oh , no ! You have to be accounted holder " ) 
+            elif daily_exp > 550 : 
+                print ( f" Your rating is : ☆☆ . Good ! you have to be accounted holder by and large " ) 
+            else : 
+                print ( f" Your rating is : ☆☆☆ . Amazing ! You are a economical " ) 
+            running = False
+        except Value_error : 
+            print ( f" Plaese , enter a valid number " )  
+now = datetime .datetime .now ( ) # phon er date and time collect kore 
+date_time = now .strftime ( " %d - %m -  %y ,  %H : %M " ) # date and time select kora 
+with open ( " expense .txt " , "a" ) as file : 
+        file .write ( f" { date_time } | { daily_exp } \n " ) # date and tk er amount ka straight line a exhibition kore 
+final_total = total_get_expense ( ) 
+print ( f" Now your total spend money is still { final_total } " ) 
