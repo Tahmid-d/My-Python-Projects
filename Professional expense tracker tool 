@@ -1,0 +1,63 @@
+import datetime # shomoi nia kaj korar jonno ( datetime ) library use korte hoi 
+def daily_amount ( ) : #
+        try : 
+            with open ( " expense .txt " , "r" ) as file : 
+                return int ( file .read ( ) ) 
+        except : 
+                return 0                                
+def total_get_expense ( ) : 
+        expenses = [ ] 
+        total = 0 
+        try : 
+            with open ( " expense .txt " , "r" ) as file : 
+                for line in file : # file er every line pora
+                    if  " | " in line : # jodi line a tarikh thake 
+                        parts = line .split ( " | ") # pipe sign dia tarikh take alada kora 
+                        amount = int ( parts [ 1 ] .strip ( ) ) # only number 
+                        expenses .append( amount ) # list a number dhukano 
+                        total += amount 
+                    elif line .strip ( ) : # jodi old shudhu number er line thake or khali line skip kora 
+                        total += int ( line .strip ( ) ) # only number gula er summation kora  
+            return expenses # pura list ferot pathano 
+        except : 
+            return [ ] 
+running = True 
+today_expense = daily_amount ( ) 
+while running : 
+        try : 
+             catagories = { " 1 " : " Food " , " 2 " : " Transport " , " 3 " : " Friends party " , " 4 " : " Tution fees " , " 5 " : " Others " }            
+             daily_exp = int ( input ( " How much money did you expense today in BDT ? " ) ) 
+             print ( f" Where did you spend your money ? Choose your catagory " )  
+             print ( f" 1 ) Food , 2 ) Transport , 3 ) Friends party , 4 ) Tution fees , 5 ) Others " )  
+             choose_catagory = " " +  input ( " Enter a  catagory number : " ) + " " 
+             catagory_name = catagories .get (  choose_catagory  , " others " ) 
+             if daily_exp > 800  : 
+                 print ( f" Your rating is : ☆.  Oh , no ! You have to be accounted holder " ) 
+             elif daily_exp > 500 : 
+                 print ( f" Your rating is : ☆☆ . Good ! you have to be accounted holder by and large " ) 
+             else : 
+                 print ( f" Your rating is : ☆☆☆ . Amazing ! You are a economical " ) 
+             running = False
+        except ValueError : 
+             print ( f" Plaese , enter a valid number " )  
+now = datetime .datetime .now ( ) # phon er date and time collect kore 
+date_time = now .strftime ( " %d - %m -  %y ,  %H : %M " ) # date and time select kora 
+with open ( " expense .txt " , "a" ) as file : 
+        file .write ( f" { date_time } | { daily_exp } | { catagory_name } \n " ) # date and tk er amount ka straight line a exhibition kore 
+# average and total calculation 
+all_expenses = total_get_expense ( ) 
+if all_expenses : 
+        total = sum( all_expenses )   # total khoroch jog kora 
+        count = len( all_expenses ) # kotober input diacho 
+        avr = total  / count # gor khoroch ber kora 
+        print ( f" - " * 30 ) 
+        print ( f" Now your total spend money is : { total } " ) 
+        print ( f" Your average daily expense is : {avr:.2f} " ) # decimal er por 2 digit dekhabe        
+         # advice user : 
+        if avr > 700 : 
+             print ( f" Be alert ! Your avr is high . Focus on your saving " ) 
+        elif avr > 500 : 
+            print ( f" Great ! You are managing budget well " ) 
+        else : 
+            print ( f" That is luminous . You are going to right way of your budget . " )  
+            print ( f" - " * 30 )  
